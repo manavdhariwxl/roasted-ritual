@@ -1,0 +1,63 @@
+@use '../styles/variables' as *;
+
+.cta {
+  background: $color-espresso;
+  padding: clamp(8rem, 18vh, 14rem) 0 clamp(6rem, 12vh, 10rem);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+}
+
+.rule {
+  display: block;
+  height: 1px;
+  background: rgba($color-cream, 0.12);
+  margin-bottom: clamp(4rem, 9vh, 7rem);
+  transform-origin: left;
+}
+
+.brandBlock {
+  margin-bottom: clamp(3rem, 6vh, 5rem);
+}
+
+.lineWrap {
+  overflow: hidden;
+}
+
+.brand1,
+.brand2 {
+  font-family: $font-serif;
+  font-size: clamp(5rem, 16vw, 15rem);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  will-change: transform, opacity;
+}
+
+.brand1 {
+  color: $color-cream;
+}
+
+.brand2 {
+  color: $color-caramel;
+  padding-left: clamp(3rem, 8vw, 8rem);
+}
+
+.tagline {
+  font-family: $font-serif;
+  font-style: normal;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba($color-cream, 0.4);
+  letter-spacing: 0.01em;
+
+  em {
+    font-style: italic;
+    color: rgba($color-cream, 0.25);
+  }
+}

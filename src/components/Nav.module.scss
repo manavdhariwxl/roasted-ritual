@@ -1,0 +1,189 @@
+@use '../styles/variables' as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem clamp(1.5rem, 5vw, 5rem);
+  transition: background 0.4s ease, padding 0.4s ease;
+  mix-blend-mode: normal;
+
+  &.scrolled {
+    background: rgba($color-espresso, 0.92);
+    backdrop-filter: blur(12px);
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid rgba($color-caramel, 0.1);
+  }
+}
+
+.logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.logoMark {
+  font-family: $font-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: $color-cream;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $color-caramel;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+
+  @media (max-width: #{$bp-tablet}) {
+    display: none;
+  }
+}
+
+.link {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.7);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $color-caramel;
+    transition: width 0.35s ease;
+  }
+
+  &:hover {
+    color: $color-cream;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+// Hamburger
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 28px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 200;
+
+  @media (max-width: #{$bp-tablet}) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    height: 1px;
+    background: $color-cream;
+    transform-origin: center;
+    transition: transform 0.35s ease, opacity 0.3s ease, width 0.35s ease;
+    width: 100%;
+  }
+
+  &.open {
+    span:first-child {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+    span:last-child {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+  }
+}
+
+// Mobile overlay
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: $color-espresso;
+  display: none;
+  pointer-events: none;
+
+  &.active {
+    display: block;
+    pointer-events: all;
+  }
+}
+
+.mobileNav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(5rem, 15vw, 8rem) clamp(1.5rem, 8vw, 4rem) 3rem;
+}
+
+.mobileHeader {
+  margin-bottom: 3rem;
+}
+
+.mobileBrand {
+  font-family: $font-serif;
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: $color-cream;
+  letter-spacing: 0.02em;
+}
+
+.mobileLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.mobileLink {
+  font-family: $font-serif;
+  font-size: clamp(2.5rem, 9vw, 4rem);
+  font-weight: 300;
+  color: rgba($color-cream, 0.9);
+  cursor: pointer;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba($color-cream, 0.08);
+  text-align: left;
+  width: 100%;
+  transition: color 0.25s ease, padding-left 0.3s ease;
+  opacity: 0;
+
+  &:hover {
+    color: $color-caramel;
+    padding-left: 1rem;
+  }
+}
+
+.mobileFooter {
+  p {
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba($color-cream, 0.35);
+  }
+}

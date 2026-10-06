@@ -1,0 +1,138 @@
+@use '../styles/variables' as *;
+
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  object-position: center 30%;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba($color-void, 0.25) 0%,
+    rgba($color-void, 0.05) 30%,
+    rgba($color-void, 0.55) 70%,
+    rgba($color-void, 0.88) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(3rem, 6vh, 5rem) clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (min-width: #{$bp-tablet}) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.titleBlock {
+  overflow: hidden;
+}
+
+.lineWrap {
+  overflow: hidden;
+}
+
+.titleLine1,
+.titleLine2 {
+  font-family: $font-serif;
+  font-weight: 300;
+  font-size: clamp(4rem, 13vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: $color-cream;
+  display: block;
+  will-change: transform, opacity;
+}
+
+.titleLine2 {
+  color: $color-caramel;
+  padding-left: clamp(2rem, 6vw, 5rem);
+}
+
+.subtitle {
+  font-family: $font-sans;
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.55);
+  margin-top: 1rem;
+  padding-left: 0.15em;
+}
+
+.tagline {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  font-weight: 300;
+  color: rgba($color-cream, 0.75);
+  letter-spacing: 0.01em;
+  max-width: 260px;
+  text-align: right;
+  line-height: 1.4;
+
+  @media (max-width: #{$bp-tablet}) {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  right: clamp(1.5rem, 5vw, 5rem);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, rgba($color-cream, 0.4));
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.scrollLabel {
+  font-family: $font-sans;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.35);
+  writing-mode: vertical-rl;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}

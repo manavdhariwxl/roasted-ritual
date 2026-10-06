@@ -1,0 +1,332 @@
+@use '../styles/variables' as *;
+
+.visit {
+  background: $color-cream;
+  padding: clamp(6rem, 14vh, 11rem) 0;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(4rem, 8vw, 10rem);
+  align-items: start;
+
+  @media (max-width: #{$bp-tablet}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.headerCol {}
+
+.eyebrow {
+  display: block;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-mist;
+  margin-bottom: 1.5rem;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.9;
+  color: $color-espresso;
+  letter-spacing: -0.025em;
+  margin-bottom: 3rem;
+
+  em {
+    font-style: italic;
+    color: $color-caramel;
+  }
+}
+
+// Reserve button
+.reserveBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: fit-content;
+
+  &:hover .reserveBtnLine {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  &:hover .reserveBtnText {
+    color: $color-espresso;
+  }
+}
+
+.reserveBtnText {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba($color-espresso, 0.5);
+  transition: color 0.3s ease;
+}
+
+.reserveBtnLine {
+  display: block;
+  height: 1px;
+  background: $color-espresso;
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+// Info
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.infoBlock {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba($color-espresso, 0.08);
+
+  &:first-child {
+    border-top: 1px solid rgba($color-espresso, 0.08);
+  }
+}
+
+.infoIcon {
+  color: $color-caramel;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.infoLabel {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba($color-espresso, 0.35);
+  margin-bottom: 0.5rem;
+}
+
+.infoText {
+  font-family: $font-sans;
+  font-size: clamp(0.88rem, 1.2vw, 0.95rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba($color-espresso, 0.75);
+}
+
+.infoLink {
+  font-family: $font-sans;
+  font-size: clamp(0.88rem, 1.2vw, 0.95rem);
+  font-weight: 300;
+  color: rgba($color-espresso, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: $color-espresso;
+  }
+}
+
+.hoursList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hoursItem {
+  display: flex;
+  gap: 2rem;
+  align-items: baseline;
+}
+
+.hoursDay {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba($color-espresso, 0.75);
+  min-width: 150px;
+}
+
+.hoursTime {
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: rgba($color-espresso, 0.5);
+}
+
+// Modal
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba($color-void, 0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+
+  @media (min-width: #{$bp-tablet}) {
+    align-items: center;
+  }
+}
+
+.modalContent {
+  background: $color-offwhite;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90svh;
+  overflow-y: auto;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: 2px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.modalTitle {
+  font-family: $font-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 300;
+  color: $color-espresso;
+  letter-spacing: -0.01em;
+}
+
+.modalClose {
+  color: rgba($color-espresso, 0.5);
+  cursor: pointer;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-espresso;
+  }
+}
+
+// Form
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: #{$bp-mobile}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formLabel {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba($color-espresso, 0.45);
+}
+
+.formInput {
+  font-family: $font-sans;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: $color-espresso;
+  background: rgba($color-espresso, 0.04);
+  border: 1px solid rgba($color-espresso, 0.12);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  outline: none;
+  border-radius: 1px;
+  transition: border-color 0.25s ease;
+  appearance: none;
+
+  &:focus {
+    border-color: $color-caramel;
+  }
+
+  &::placeholder {
+    color: rgba($color-espresso, 0.25);
+  }
+
+  option {
+    background: $color-offwhite;
+  }
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.formSubmit {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $color-cream;
+  background: $color-espresso;
+  padding: 1.1rem 2rem;
+  cursor: pointer;
+  border: 1px solid $color-espresso;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: $color-walnut;
+    border-color: $color-walnut;
+  }
+}
+
+// Success
+.successMsg {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.successTitle {
+  font-family: $font-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 300;
+  color: $color-espresso;
+  margin-bottom: 0.8rem;
+}
+
+.successBody {
+  font-family: $font-sans;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba($color-espresso, 0.55);
+}

@@ -1,0 +1,92 @@
+@use '../styles/variables' as *;
+
+.roast {
+  position: relative;
+  height: 90vh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  object-position: center 40%;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba($color-void, 0.1) 0%,
+    rgba($color-void, 0.3) 40%,
+    rgba($color-void, 0.85) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(3rem, 6vh, 5rem) clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+
+  @media (max-width: #{$bp-tablet}) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.headingBlock {
+  flex-shrink: 0;
+}
+
+.wordWrap {
+  overflow: hidden;
+}
+
+.word {
+  font-family: $font-serif;
+  font-size: clamp(5rem, 15vw, 13rem);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: $color-cream;
+  display: block;
+  will-change: transform, opacity;
+
+  &:last-child {
+    padding-left: clamp(3rem, 8vw, 7rem);
+    color: $color-caramel;
+  }
+}
+
+.textBlock {
+  max-width: 340px;
+  padding-bottom: 0.5rem;
+
+  @media (max-width: #{$bp-tablet}) {
+    max-width: 100%;
+  }
+}
+
+.body {
+  font-family: $font-sans;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba($color-cream, 0.65);
+}

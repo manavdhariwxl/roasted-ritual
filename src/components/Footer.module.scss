@@ -1,0 +1,124 @@
+@use '../styles/variables' as *;
+
+.footer {
+  background: $color-void;
+  padding: clamp(4rem, 8vh, 6rem) 0 clamp(2rem, 4vh, 3rem);
+  border-top: 1px solid rgba($color-cream, 0.06);
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: clamp(3rem, 5vh, 4rem);
+  border-bottom: 1px solid rgba($color-cream, 0.06);
+  margin-bottom: clamp(2rem, 4vh, 3rem);
+  align-items: start;
+
+  @media (max-width: #{$bp-tablet}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: #{$bp-mobile}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brand {}
+
+.brandName {
+  font-family: $font-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 300;
+  color: $color-cream;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.2rem;
+}
+
+.brandSub {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.25);
+}
+
+.footerNav {}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.navLink {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: rgba($color-cream, 0.45);
+  cursor: pointer;
+  transition: color 0.25s ease;
+  text-align: left;
+
+  &:hover {
+    color: $color-cream;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contactLink {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba($color-cream, 0.4);
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: $color-caramel;
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.address {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba($color-cream, 0.2);
+  letter-spacing: 0.04em;
+}
+
+.credit {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba($color-caramel, 0.7);
+}
+
+.copy {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba($color-cream, 0.18);
+}

@@ -1,0 +1,185 @@
+@use '../styles/variables' as *;
+
+.menu {
+  background: $color-espresso;
+  padding: clamp(6rem, 14vh, 11rem) 0;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(4rem, 8vh, 7rem);
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba($color-cream, 0.08);
+
+  @media (max-width: #{$bp-tablet}) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.eyebrow {
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.3);
+  padding-bottom: 0.3rem;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: $color-cream;
+  letter-spacing: -0.02em;
+  text-align: right;
+
+  em {
+    font-style: italic;
+    color: $color-caramel;
+  }
+
+  @media (max-width: #{$bp-tablet}) {
+    text-align: left;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: start;
+
+  @media (max-width: #{$bp-laptop}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.drinkList {
+  display: flex;
+  flex-direction: column;
+}
+
+.drinkItem {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba($color-cream, 0.06);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+
+  &:first-child {
+    border-top: 1px solid rgba($color-cream, 0.06);
+  }
+
+  &.active,
+  &:hover {
+    border-color: rgba($color-caramel, 0.3);
+
+    .drinkName {
+      color: $color-caramel;
+    }
+
+    .drinkDesc {
+      color: rgba($color-cream, 0.7);
+    }
+  }
+}
+
+.drinkTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.drinkName {
+  font-family: $font-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  color: $color-cream;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.drinkPrice {
+  font-family: $font-sans;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: $color-caramel;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.drinkDesc {
+  font-family: $font-sans;
+  font-size: clamp(0.82rem, 1.1vw, 0.9rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba($color-cream, 0.4);
+  max-width: 45ch;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.drinkNote {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.2);
+}
+
+// Image stack
+.imageStack {
+  position: sticky;
+  top: 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: end;
+
+  @media (max-width: #{$bp-laptop}) {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: #{$bp-mobile}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageWrap1 {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+}
+
+.imageWrap2 {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+  margin-bottom: -3rem;
+}
+
+.stackImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}

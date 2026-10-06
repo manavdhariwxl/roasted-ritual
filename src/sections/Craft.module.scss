@@ -1,0 +1,107 @@
+@use '../styles/variables' as *;
+
+.craft {
+  background: $color-offwhite;
+  padding: clamp(6rem, 14vh, 11rem) 0;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: center;
+
+  @media (max-width: #{$bp-tablet}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.textCol {}
+
+.eyebrow {
+  display: block;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-mist;
+  margin-bottom: 1.5rem;
+}
+
+.heading {
+  font-family: $font-serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.08;
+  color: $color-espresso;
+  letter-spacing: -0.015em;
+  margin-bottom: 2rem;
+
+  em {
+    font-style: italic;
+    color: $color-walnut;
+  }
+}
+
+.body {
+  font-family: $font-sans;
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba($color-espresso, 0.65);
+  max-width: 42ch;
+  margin-bottom: 3rem;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: $font-sans;
+  font-size: clamp(0.85rem, 1.1vw, 0.9rem);
+  font-weight: 300;
+  color: rgba($color-espresso, 0.6);
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba($color-espresso, 0.08);
+  letter-spacing: 0.02em;
+
+  &:first-child {
+    border-top: 1px solid rgba($color-espresso, 0.08);
+  }
+}
+
+.listDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: $color-caramel;
+  flex-shrink: 0;
+}
+
+// Image
+.imageCol {}
+
+.imageWrap {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+}
+
+.image {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center 20%;
+  will-change: transform;
+}
