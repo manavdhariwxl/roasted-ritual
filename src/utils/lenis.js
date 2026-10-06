@@ -7,23 +7,27 @@ gsap.registerPlugin(ScrollTrigger)
 let lenisInstance = null
 
 export function initLenis() {
+  if (lenisInstance) return lenisInstance
+
   lenisInstance = new Lenis({
-    duration: 1.4,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 0.9,
+    easing: (t) => 1 - Math.pow(1 - t, 3),
     orientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 0.9,
-    touchMultiplier: 2,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.5,
   })
 
-  // Connect Lenis to GSAP ScrollTrigger
   lenisInstance.on('scroll', ScrollTrigger.update)
 
-  gsap.ticker.add((time) => {
-    lenisInstance.raf(time * 1000)
-  })
+  const raf = (time) => {
+    lenisInstance?.raf(time * 1000)
+  }
 
-  gsap.ticker.lagSmoothing(0)
+  gsap.ticker.add(raf)
+
+  // Don't disable GSAP's frame-drop recovery.
+  gsap.ticker.lagSmoothing(500, 33)
 
   return lenisInstance
 }

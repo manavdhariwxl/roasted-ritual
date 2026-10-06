@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { initLenis, destroyLenis } from './utils/lenis'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Hero from './sections/Hero'
@@ -15,23 +13,14 @@ import Visit from './sections/Visit'
 import Cta from './sections/Cta'
 
 export default function App() {
-  useEffect(() => {
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    if (!prefersReducedMotion) {
-      initLenis()
-    }
-
-    return () => {
-      destroyLenis()
-    }
-  }, [])
-
   return (
     <>
-      <a href="#main-content" className="visually-hidden">Skip to main content</a>
+      <a href="#main-content" className="visually-hidden">
+        Skip to main content
+      </a>
+
       <Nav />
+
       <main id="main-content">
         <Hero />
         <Ritual />
@@ -45,6 +34,7 @@ export default function App() {
         <Visit />
         <Cta />
       </main>
+
       <Footer />
     </>
   )
